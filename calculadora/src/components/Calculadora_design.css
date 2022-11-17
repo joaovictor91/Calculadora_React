@@ -6,6 +6,9 @@ button{
     border-radius: 2em;
     margin: 0.3em;
 }
+body{
+    background-color: rgb(255, 255, 128);
+}
 
 button:hover{
     cursor: pointer;
@@ -25,6 +28,13 @@ button:hover{
 .gray{
     background-color: #505050;
     color: white;
+}
+.zero{
+    background-color: #505050;
+    color: white;
+    padding: 0.5em 5rem;
+    
+    
 }
 .resultado{
     color: white;
