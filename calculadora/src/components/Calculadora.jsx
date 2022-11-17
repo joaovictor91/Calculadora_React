@@ -6,11 +6,15 @@ import { Box } from "@mui/system";
 export default function Calculadora() {
     const [num, setNum] = useState(0);
     const [oldnum, setOldNum] = useState(0);
-    const [operador, setOperador] = useState(); 
+    const [operador, setOperador] = useState();
+    
 
     function InserirNum(e){
+        
         var inserir = e.target.value;
+       
         if (num === 0 ){
+            
             setNum(inserir);
         }
         else{
@@ -46,16 +50,17 @@ export default function Calculadora() {
     function Calcular(){
         
         if (operador === "+"){
-            setNum(parseFloat(setOldNum) + parseFloat(num));
+            setNum(parseFloat(oldnum) + parseFloat(num));
+            
         }
         if (operador === "-"){
-            setNum(parseFloat(setOldNum) - parseFloat(num));
+            setNum(parseFloat(oldnum) - parseFloat(num));
         }
         if (operador === "X"){
-            setNum(parseFloat(setOldNum) * parseFloat(num));
+            setNum(parseFloat(oldnum) * parseFloat(num));
         }
         if (operador === "/"){
-            setNum(parseFloat(setOldNum) / parseFloat(num));
+            setNum(parseFloat(oldnum) / parseFloat(num));
         }
     }
 
@@ -69,19 +74,19 @@ export default function Calculadora() {
                     <button onClick={Clear}>AC</button>
                     <button onClick={MudarSinal}>+/-</button>
                     <button onClick={Porcentagem}>%</button>
-                    <button className="orange" onClick={operatorHandler}>/</button>
+                    <button className="orange" onClick={operatorHandler} value={"/"}>/</button>
                     <button className="gray" onClick={InserirNum} value={7}>7</button>
                     <button className="gray" onClick={InserirNum} value={8}>8</button>
                     <button className="gray" onClick={InserirNum} value={9}>9</button>
-                    <button className="orange" onClick={operatorHandler}>X</button>
+                    <button className="orange" onClick={operatorHandler} value={"X"}>X</button>
                     <button className="gray" onClick={InserirNum} value={4}>4</button>
                     <button className="gray" onClick={InserirNum} value={5}>5</button>
                     <button className="gray" onClick={InserirNum} value={6}>6</button>
-                    <button className="orange" onClick={operatorHandler}>-</button>
+                    <button className="orange" onClick={operatorHandler} value={"-"}>-</button>
                     <button className="gray" onClick={InserirNum} value={1}>1</button>
                     <button className="gray" onClick={InserirNum} value={2}>2</button>
                     <button className="gray" onClick={InserirNum} value={3}>3</button>
-                    <button className="orange" onClick={operatorHandler}>+</button>
+                    <button className="orange" onClick={operatorHandler} value={"+"}>+</button>
                     <button className="gray" onClick={InserirNum} value={0}>0</button>
                     <button className="gray" onClick={InserirNum} value={"."}>,</button>
                     <button className="gray" style={{ visibility: "hidden" }} >,</button>
