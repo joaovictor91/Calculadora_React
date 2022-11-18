@@ -8,7 +8,6 @@ export default function Calculadora() {
     const [oldnum, setOldNum] = useState(0);
     const [operador, setOperador] = useState();
         
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
     function InserirNum(e){
         
@@ -16,7 +15,7 @@ export default function Calculadora() {
        
         if (num === 0 ){
            
-                setNum(inserir);
+            setNum(inserir);
             
         }
         
@@ -46,7 +45,7 @@ export default function Calculadora() {
         var operadorInput = e.target.value;
         setOperador(operadorInput);
         setOldNum(num);
-        setNum(0);
+       
         
       }
 
@@ -71,10 +70,10 @@ export default function Calculadora() {
         <body>
             <h1>Calculadora em React</h1>
             <div>
-                <Box m={5} />
+                <Box m={2} />
                 <Container maxWidth="xs">
                     <div className='wrapper'>
-                            <Box m={12}/>
+                            <Box m={1}/>
                             <h1 className='resultado'>{num}</h1>
                             <button onClick={Clear}>AC</button>
                             <button onClick={MudarSinal}>+/-</button>
