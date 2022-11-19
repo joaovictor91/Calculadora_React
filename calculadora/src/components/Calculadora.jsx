@@ -7,7 +7,7 @@ export default function Calculadora() {
     const [num, setNum] = useState(0);
     const [oldnum, setOldNum] = useState(0);
     const [operador, setOperador] = useState();
-        
+    const [igual, setIgual] = useState(false);    
 
     function InserirNum(e){
         
@@ -18,7 +18,16 @@ export default function Calculadora() {
             setNum(inserir);
             
         }
-        
+        else if(num === oldnum)
+        {
+            setNum(inserir);
+        }
+        else if(igual === true)
+        {
+            setNum(0);
+            setIgual(false);
+            setNum(inserir);
+        }
         else{
             setNum(num + inserir);
         }
@@ -26,6 +35,7 @@ export default function Calculadora() {
     }
     function Clear(){
         setNum(0);
+        setIgual(false);
     }
     
     function Porcentagem(){
@@ -45,6 +55,7 @@ export default function Calculadora() {
         var operadorInput = e.target.value;
         setOperador(operadorInput);
         setOldNum(num);
+        setIgual(false);
        
         
       }
@@ -53,16 +64,20 @@ export default function Calculadora() {
         
         if (operador === "+"){
             setNum(parseFloat(oldnum) + parseFloat(num));
+            setIgual(true);
             
         }
         if (operador === "-"){
             setNum(parseFloat(oldnum) - parseFloat(num));
+            setIgual(true);
         }
         if (operador === "X"){
             setNum(parseFloat(oldnum) * parseFloat(num));
+            setIgual(true);
         }
         if (operador === "/"){
             setNum(parseFloat(oldnum) / parseFloat(num));
+            setIgual(true);
         }
     }
 
