@@ -7,16 +7,20 @@ export default function Calculadora() {
     const [num, setNum] = useState(0);
     const [oldnum, setOldNum] = useState(0);
     const [operador, setOperador] = useState();
-    const [igual, setIgual] = useState(false);    
+    const [igual, setIgual] = useState(false);
+    const [op, setOp] = useState(false);
+
 
     function InserirNum(e){
         
         var inserir = e.target.value;
-       
+        
+
+
         if (num === 0 ){
-           
+        
             setNum(inserir);
-            
+                
         }
         else if(num === oldnum)
         {
@@ -28,9 +32,19 @@ export default function Calculadora() {
             setIgual(false);
             setNum(inserir);
         }
-        else{
+        else if (num.indexOf('.') > -1)
+        {
+            alert("Já foi inserido");
+                
+        }
+            
+        else
+        {
             setNum(num + inserir);
         }
+            
+
+
 
     }
     function Clear(){
@@ -56,6 +70,33 @@ export default function Calculadora() {
         setOperador(operadorInput);
         setOldNum(num);
         setIgual(false);
+        setOp(true);
+        if (op === true){
+            if (operador === "+"){
+                setNum(parseFloat(oldnum) + parseFloat(num));
+                setIgual(true);
+                setOp(false);
+                
+            }
+            if (operador === "-"){
+                setNum(parseFloat(oldnum) - parseFloat(num));
+                setIgual(true);
+                setOp(false);
+    
+            }
+            if (operador === "X"){
+                setNum(parseFloat(oldnum) * parseFloat(num));
+                setIgual(true);
+                setOp(false);
+              
+            }
+            if (operador === "/"){
+                setNum(parseFloat(oldnum) / parseFloat(num));
+                setIgual(true);
+                setOp(false);
+              
+            }
+        }
        
         
       }
@@ -65,19 +106,27 @@ export default function Calculadora() {
         if (operador === "+"){
             setNum(parseFloat(oldnum) + parseFloat(num));
             setIgual(true);
+            setOp(false);
+           
             
         }
         if (operador === "-"){
             setNum(parseFloat(oldnum) - parseFloat(num));
             setIgual(true);
+            setOp(false);
+            
         }
         if (operador === "X"){
             setNum(parseFloat(oldnum) * parseFloat(num));
             setIgual(true);
+            setOp(false);
+            
         }
         if (operador === "/"){
             setNum(parseFloat(oldnum) / parseFloat(num));
             setIgual(true);
+            setOp(false);
+           
         }
     }
 
