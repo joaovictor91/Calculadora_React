@@ -14,16 +14,16 @@ export default function Calculadora() {
     function InserirNum(e){
         
         var inserir = e.target.value;
-        
-
-
         if (num === 0 ){
-        
             setNum(inserir);
-                
         }
         else if(num === oldnum)
         {
+            setNum(inserir);
+        }
+        else if(num === isNaN)
+        {
+            setNum(0);
             setNum(inserir);
         }
         else if(igual === true)
@@ -50,6 +50,7 @@ export default function Calculadora() {
     function Clear(){
         setNum(0);
         setIgual(false);
+        setOp(false);
     }
     
     function Porcentagem(){
