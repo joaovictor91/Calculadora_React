@@ -32,6 +32,10 @@ export default function Calculadora() {
             setIgual(false);
             setNum(inserir);
         }
+        else
+        {
+            setNum(num + inserir);
+        }
 
 
 
