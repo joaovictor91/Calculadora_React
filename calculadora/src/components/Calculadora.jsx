@@ -32,17 +32,7 @@ export default function Calculadora() {
             setIgual(false);
             setNum(inserir);
         }
-        else if (num.indexOf('.') > -1)
-        {
-            alert("Já foi inserido");
-                
-        }
-            
-        else
-        {
-            setNum(num + inserir);
-        }
-            
+
 
 
 
